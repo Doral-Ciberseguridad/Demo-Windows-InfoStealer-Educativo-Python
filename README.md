@@ -13,7 +13,10 @@ pip install rclone-python
 ```
 
 
-3. Lanza el script de Python ejecutando en tu terminal:
+3.Antes de ejecutar el script editalo y configura la variable "tu_remoto" para que coincida con el nombre de tu remoto configurado en rclone.
+
+
+4. Lanza el script de Python ejecutando en tu terminal:
 
 ```
 python Windows_InfoStealer.py
@@ -23,7 +26,7 @@ python Windows_InfoStealer.py
 
 
 
-4. Verifica la compresión de los directorios en archivos .zip dentro de la carpeta temporal y su posterior exfiltración a la nube mediante rclone
+5. Verifica la compresión de los directorios en archivos .zip dentro de la carpeta temporal y su posterior exfiltración a la nube mediante rclone
 
 <img width="616" height="239" alt="image" src="https://github.com/user-attachments/assets/93d4ad54-30d6-40a5-beb1-ae23cdbae4b4" />
 
