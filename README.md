@@ -1,3 +1,4 @@
+Importante: Debes de tener instalado y configurado rclone antes de ejecutar este script
 
 1. Clona o descarga el repositorio en tu máquina ejecutando este comando:
 
